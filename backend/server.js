@@ -16,8 +16,6 @@ app.get("/", (req, res) => {
 const API_KEY = process.env.OPENROUTER_API_KEY;
 
 app.post("/", async (req, res) => {
-  console.log("Authorization header:", `Bearer ${API_KEY}`);
-
   try {
     const content = req.body.message;
     console.log("Received message:", content);
