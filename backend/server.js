@@ -1,21 +1,23 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 const app = express();
 const port = 3000;
 
-// Разрешаем любые CORS-запросы
-app.use(cors());
+dotenv.config();
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello Ai-Chat!");
 });
 
-const API_KEY =
-  "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";
+const API_KEY = process.env.OPENROUTER_API_KEY;
 
 app.post("/", async (req, res) => {
+  console.log("Authorization header:", `Bearer ${API_KEY}`);
+
   try {
     const content = req.body.message;
     console.log("Received message:", content);
