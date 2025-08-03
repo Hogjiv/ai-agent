@@ -32,6 +32,7 @@ export default {
             this.isLoading = true;
             try {
                 const res = await fetch("http://localhost:3000/", {
+                    // here will be aws ec2 ip
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
